@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace等于mapper接口类的全限定名,这样实现对应 -->
+<mapper namespace="com.mapper.com.atguigu.EmployeeMapper">
+<select id="queryNameById" resultType="java.lang.String">
+    select emp_name from t_emp where emp_id=#{id}
+</select>
+    <delete id="delectById">
+        delete from t_emp where emp_id=#{ergouzi}
+    </delete>
+    <select id="querySalaryById" resultType="java.lang.Double">
+        select emp_salary from t_emp where emp_id=#{id}
+    </select>
+    <select id="queryNameBySalary" resultType="String">
+        select emp_name from t_emp where emp_salary>#{salary}
+    </select>
+    <select id="queryAll" resultType="com.pojo.com.atguigu.Employee">
+        select * from t_emp;
+    </select>
+    <insert id="insertEmp">
+        insert into t_emp(emp_name,emp_salary)
+        values(#{empName},#{empSalary});
+    </insert>
+</mapper>
